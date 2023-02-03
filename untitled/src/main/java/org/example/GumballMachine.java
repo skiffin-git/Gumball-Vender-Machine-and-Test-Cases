@@ -34,7 +34,7 @@ public class GumballMachine {
      * @param input A string representing the color of the gumball
      * to be dispensed (either "r" or "y").
      */
-    public void dispenseGumball(String input) {
+    public boolean dispenseGumball(String input) {
         if (input.equalsIgnoreCase("r")) {
             if (balance >= redGumballPrice) {
                 balance -= redGumballPrice;
@@ -42,7 +42,7 @@ public class GumballMachine {
             } else {
                 System.out.println("Not enough coins inserted. Please insert " + (redGumballPrice - balance) + " cents more");
             }
-        } else if (input.equalsIgnoreCase("r") || input.equalsIgnoreCase("y")){
+        } else if (input.equalsIgnoreCase("y")){
             if (balance >= yellowGumballPrice) {
                 balance -= yellowGumballPrice;
                 System.out.println("Dispensing Yellow gumball");
@@ -50,23 +50,27 @@ public class GumballMachine {
                 System.out.println("Not enough coins inserted. Please insert " + (yellowGumballPrice - balance) + " cents more");
             }
         } else {
-            System.out.println("Invalid gumball color");
+            return false;
         }
+        return true;
     }
     /**
      * This method returns the remaining coins in the user's balance if they are present.
      * @param input A string representing the user's intention
      * to return their remaining coins (either "g" or "G").
      */
-    public void returnCoins(String input) {
+    public boolean returnCoins(String input) {
         if (input.equalsIgnoreCase("g")) {
             if (balance > 0) {
                 System.out.println("Returning " + balance + " cents in change");
+
             } else {
                 System.out.println("No coins left to return");
             }
             balance = 0;
+            return true;
         }
+        return false;
     }
     /**
      * Displays the options available to the user on the gumball machine.

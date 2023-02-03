@@ -28,19 +28,20 @@ public class main {
                 break;
             }
 
-            // return coins
-            gumballMachine.returnCoins(input);
+            // check for return coins
+            if(!gumballMachine.returnCoins(input)){
+                // check for dispense color based gum
+                if(!gumballMachine.dispenseGumball(input)){
+                    // try insert coin
+                    try {
+                        // transform string to int and add coins to bank
+                        gumballMachine.insertCoin(Integer.parseInt(input));
 
-            // sell color based gum
-            gumballMachine.dispenseGumball(input);
-
-            // try insert coin
-            try {
-                // transform string to int and add coins to bank
-                gumballMachine.insertCoin(Integer.parseInt(input));
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input");
-            }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input");
+                    }
+                };
+            };
         }
     }
 }
