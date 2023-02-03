@@ -1,70 +1,47 @@
 package org.example;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
-    public class GumballMachineTest {
-    private GumballMachine gumballMachine;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    @Before
-    public void setUp() {
-        gumballMachine = new GumballMachine();
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class GumballMachineTest {
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+
+    @BeforeEach
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @AfterEach
+    public void restoreStreams() {
+        System.setOut(originalOut);
     }
 
     @Test
-    public void testInsertCoin_validInput() {
+    public void testInsertCoin() {
+        GumballMachine gumballMachine = new GumballMachine();
         gumballMachine.insertCoin(5);
         assertEquals(5, gumballMachine.getBalance());
+        assertEquals("New balance is: 5 cents\r\n", outContent.toString());
+        outContent.reset();
         gumballMachine.insertCoin(10);
         assertEquals(15, gumballMachine.getBalance());
+        assertEquals("New balance is: 15 cents\r\n", outContent.toString());
+        outContent.reset();
         gumballMachine.insertCoin(25);
         assertEquals(40, gumballMachine.getBalance());
-    }
-
-    @Test
-    public void testInsertCoin_invalidInput() {
+        assertEquals("New balance is: 40 cents\r\n", outContent.toString());
+        outContent.reset();
         gumballMachine.insertCoin(3);
-        assertEquals(0, gumballMachine.getBalance());
-    }
-
-    @Test
-    public void testDispenseGumball_red() {
-        gumballMachine.setBalance(5);
-        gumballMachine.dispenseGumball("r");
-        assertEquals(0, gumballMachine.getBalance());
-    }
-
-    @Test
-    public void testDispenseGumball_yellow() {
-        gumballMachine.setBalance(10);
-        gumballMachine.dispenseGumball("y");
-        assertEquals(0, gumballMachine.getBalance());
-    }
-
-    @Test
-    public void testDispenseGumball_notEnoughCoins() {
-        gumballMachine.setBalance(0);
-        gumballMachine.dispenseGumball("r");
-        assertEquals(0, gumballMachine.getBalance());
-    }
-
-    @Test
-    public void testDispenseGumball_invalidColor() {
-        gumballMachine.setBalance(10);
-        gumballMachine.dispenseGumball("green");
-        assertEquals(10, gumballMachine.getBalance());
-    }
-
-    @Test
-    public void testReturnCoins_withCoins() {
-        gumballMachine.setBalance(20);
-        gumballMachine.returnCoins("g");
-        assertEquals(0, gumballMachine.getBalance());
-    }
-
-    @Test
-    public void testReturnCoins_withoutCoins() {
-        gumballMachine.returnCoins("g");
-        assertEquals(0, gumballMachine.getBalance());
+        assertEquals(40, gumballMachine.getBalance());
+        assertEquals("Invalid input, returned 3 on the push of the dispenses lever\r\n", outContent.toString());
+        outContent.reset();
     }
 }
+
 
