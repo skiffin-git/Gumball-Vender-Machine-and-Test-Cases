@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class GumballMachine {
+    private int balance = 0; // in cents
+    private int redGumballPrice = 5; // in cents
+    private int yellowGumballPrice = 10; // in cents
+
+    /**
+     * This method accepts an integer input that represents the coin inserted in the gumball machine.
+     * If the coin is 5, 10, or 25 cents, the balance is updated with the inserted coin.
+     * If the coin is not a valid value, the user is informed that the coin was returned.
+     * @param coin The value of the inserted coin in cents.
+     */
+    public void insertCoin(int coin) {
+        if (coin == 5 || coin == 10 || coin == 25) {
+            balance += coin;
+            System.out.println("New balance is: " + balance + " cents");
+        } else {
+            System.out.println("Invalid input, returned " + coin + " on the push of the dispenses lever");
+        }
+    }
+
+    /**
+     * This method accepts a string input that represents the color of the gumball the user wants to dispense.
+     * If the input string is "R" or "r", the red gumball is dispensed if the balance is equal or greater than the red gumball price.
+     * If the input string is "Y" or "y", the yellow gumball is dispensed if the balance is equal or greater than the yellow gumball price.
+     * If the input string is not a valid color, the user is informed that the input is invalid.
+     * @param input The string input that represents the color of the gumball.
+     */
+    public void dispenseGumball(String input) {
+        if (input.equalsIgnoreCase("r")) {
+            if (balance >= redGumballPrice) {
+                balance -= redGumballPrice;
+                System.out.println("Dispensing Red gumball, remaining coins: " + balance);
+            } else {
+                System.out.println("Not enough coins inserted. Please insert " + (redGumballPrice - balance) + " cents more");
+            }
+        } else if (input.equalsIgnoreCase("r") || input.equalsIgnoreCase("y")){
+            if (balance >= yellowGumballPrice) {
+                balance -= yellowGumballPrice;
+                System.out.println("Dispensing Yellow gumball");
+            } else {
+                System.out.println("Not enough coins inserted. Please insert " + (yellowGumballPrice - balance) + " cents more");
+            }
+        } else {
+            System.out.println("Invalid gumball color");
+        }
+    }
+
+    /**
+     * This method accepts a string input that represents the user's request to return their remaining coins.
+     * If the input string is "G" or "g", the balance is returned to the user if there are any
