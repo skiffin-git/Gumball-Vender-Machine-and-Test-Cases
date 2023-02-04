@@ -16,11 +16,11 @@
 
 [sreenshot-run-2](images/screeenshot-run-2.jpg)
 
-## Test cases to cover all possible scenarios:
+# Test cases to cover all possible scenarios:
 
-### Reasons for Test Cases (Abstract):
+## Reasons for Test Cases (Abstract):
 
-	Design and Implement a Gumball Vending Machine that dispenses Red and Yellow
+Design and Implement a Gumball Vending Machine that dispenses Red and Yellow
 gumballs, accepts nickel, dime and quarter coins as payment, and returns change if necessary. The
 machine will be equipped with two levers, one for Red gumballs and one for Yellow gumballs,
 allowing customers to choose their preferred type. Customers can insert multiple coins until they
@@ -29,15 +29,14 @@ have a "Return My Change" lever, allowing customers to receive their remaining c
 making a purchase. The machine will have an unlimited supply of gumballs and change to
 dispense.
 
-### Test Case Presentation (Abstract):
+## Test Case Presentation (Abstract):
 
 * Verify that the machine only accepts nickel, dimes or quarters as valid currency.
 * Verify that the machine dispenses the correct type of gumball based on the type selected.
 * Verify that the machine dispenses a single gumball at a time.
 * Verify that the customer can insert multiple coins before dispensing the gumball.
 * Verify that the customer can return the change if necessary.
-* Verify that the machine keeps track of the gumballs dispensed and the amount of change
-returned.
+* Verify that the machine keeps track of the gumballs dispensed and the amount of change returned.
 * Test the functionality of the "Return My Change" lever.
 * Test the functionality of the Red and Yellow gumball dispenser levers.
 * Test the machine's ability to dispense two Red gumballs when a quarter is inserted.
@@ -45,14 +44,14 @@ returned.
 
 ### Reasons for Test Cases (Program):
 
-	The purpose of these test cases is to verify that the GumballMachine class behaves
+The purpose of these test cases is to verify that the GumballMachine class behaves
 correctly. The tests are written using the JUnit and Jupiter API. The test cases perform different
 actions on the GumballMachine class such as inserting coin, dispensing the gumball, and returning
 the coin. We also need to check the state of the classes such as the balance, or output messages and
 ensure that they are updated correctly.The tests are designed to cover different edge cases and
 validate that the class works as expected in each scenario.
 	
-	The first test case made named **testInsertCoin** was made for the method insertCoin which
+The first test case made named **testInsertCoin** was made for the method insertCoin which
 is one of the basic operations of the gumball machine. It is important that only certain types of
 coins are allowed and that any other form of coins are seen as invalid inputs. For example, one of
 the first requirements is that the machine needs to only accept nickels, dimes, and quarters. This
@@ -61,7 +60,7 @@ like those previous mentioned. Another reason for the test case is to make sure 
 can track the total value of coins that were inserted. The success of this type of functionality is
 essential to other requirements mentioned.
 
-	The second test case was for **testDispenseGumball** which is to verify the the
+The second test case was for **testDispenseGumball** which is to verify the the
 dispenseGumball method of the GumballMachine class is working as expected. Four cases of
 gumball dispensing are tested: Red, Yellow, Yellow again, and Red when no coins are inserted.
 The test case verifies if the balance of the gumball machine is updated correctly for each input and
@@ -70,14 +69,14 @@ sure that it does not dispense gumballs with no balance left in the machine and 
 more money. Dispensing gumballs is the whole point of the machine; therefore, is it essential it
 does it right.
 
-	The third test case was for **returnCoins**. This test case is needed to verify the functionality
+The third test case was for **returnCoins**. This test case is needed to verify the functionality
 of returning the change. It is important to know the current state of the gumball machine as a user
 can try to return coins which have already been used. For example, if a user inserts a dime and
 dispenses only one red gunball, a nickel would be returned. It is also pertinent to have this case
 because we do not want the user to get more coins than they put in to the machine. This means that
 the coin return function works as expected.
 
-	The **testMain** test case was made for the main method of the GumballMachine program.
+The **testMain** test case was made for the main method of the GumballMachine program.
 The purpose of this test case is to verify that the program handles invalid inputs and returns the
 correct message to the user. The test uses a ByteArrayInputStream to simulate user inputs and a
 ByteArrayOutputStream to capture the program's output.
@@ -94,11 +93,11 @@ or produce unexpected results when faced with unexpected inputs.
 coins, dispensing gumballs, getting the remaining coins, or displaying the options menu. These
 functionalities are tested in separate test cases.
 
-### Screenshot of All Test Cases Passes:
+## Screenshot of All Test Cases Passes:
 
 [sreenshot-test-1](images/sreenshot-test-1.jpg)
 
-### Test Case Presentation (Program):
+## Test Case Presentation (Program):
 
 1. **testInsertCoin** is a JUnit test case for testing the insertCoin method of the
    GumballMachine class. The test case performs the following actions:
