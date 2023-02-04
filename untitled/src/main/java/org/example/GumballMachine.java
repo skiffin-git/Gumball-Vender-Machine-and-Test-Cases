@@ -12,14 +12,11 @@ package org.example;
 public class GumballMachine {
 
     private int balance = 0; // in cents
-    private int redGumballPrice = 5; // in cents
-    private int yellowGumballPrice = 10; // in cents
 
     /**
      * This method accepts an integer input that represents
      *      the coin inserted in the gumball machine.
      * @param coin The value of the inserted coin in cents.
-     * @return a boolean indicating whether the inserted coin is valid or not.
      */
     public void insertCoin(int coin) {
         if (coin == 5 || coin == 10 || coin == 25) {
@@ -40,6 +37,8 @@ public class GumballMachine {
      */
     public boolean dispenseGumball(String input) {
         if (input.equalsIgnoreCase("r")) {
+            // in cents
+            int redGumballPrice = 5;
             if (balance >= redGumballPrice) {
                 balance -= redGumballPrice;
                 System.out.println("Dispensing Red gumball, remaining coins: " + balance);
@@ -48,6 +47,8 @@ public class GumballMachine {
                         + (redGumballPrice - balance) + " cents more");
             }
         } else if (input.equalsIgnoreCase("y")){
+            // in cents
+            int yellowGumballPrice = 10;
             if (balance >= yellowGumballPrice) {
                 balance -= yellowGumballPrice;
                 System.out.println("Dispensing Yellow gumball, remaining coins: " + balance);
