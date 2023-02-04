@@ -12,9 +12,9 @@
  * Program written in Java and can be run as a project in IntelIJ IDE
  * Here are some screenshot of program running:
 
-![sreenshot-1](images/screeenshot-run-1.jpg)
+![screenshot-run-1](images/screenshot-run-1.jpg)
 
-![sreenshot-2](images/screeenshot-run-2.jpg)
+![screenshot-run-2](images/screenshot-run-1.jpg)
 
 # Test cases to cover all possible scenarios:
 
