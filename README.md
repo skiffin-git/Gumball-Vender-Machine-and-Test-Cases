@@ -1,4 +1,4 @@
-#Problem statement:
+# Problem statement:
 
 * Develop a gumball vending machine software that allows customers to insert only nickel,
   dimes or quarters as valid currency, dispense Red or Yellow gumballs based on the type selected,
@@ -16,9 +16,9 @@
 
 [sreenshot-run-2](images/screeenshot-run-2.jpg)
 
-##Test cases to cover all possible scenarios:
+## Test cases to cover all possible scenarios:
 
-###Reasons for Test Cases (Abstract):
+### Reasons for Test Cases (Abstract):
 
 	Design and Implement a Gumball Vending Machine that dispenses Red and Yellow
 gumballs, accepts nickel, dime and quarter coins as payment, and returns change if necessary. The
@@ -29,7 +29,7 @@ have a "Return My Change" lever, allowing customers to receive their remaining c
 making a purchase. The machine will have an unlimited supply of gumballs and change to
 dispense.
 
-###Test Case Presentation (Abstract):
+### Test Case Presentation (Abstract):
 
 * Verify that the machine only accepts nickel, dimes or quarters as valid currency.
 * Verify that the machine dispenses the correct type of gumball based on the type selected.
@@ -43,7 +43,7 @@ returned.
 * Test the machine's ability to dispense two Red gumballs when a quarter is inserted.
 * Verify the machine's ability to handle unexpected inputs and provide appropriate responses.
 
-###Reasons for Test Cases (Program):
+### Reasons for Test Cases (Program):
 
 	The purpose of these test cases is to verify that the GumballMachine class behaves
 correctly. The tests are written using the JUnit and Jupiter API. The test cases perform different
@@ -94,11 +94,11 @@ or produce unexpected results when faced with unexpected inputs.
 coins, dispensing gumballs, getting the remaining coins, or displaying the options menu. These
 functionalities are tested in separate test cases.
 
-###Screenshot of All Test Cases Passes:
+### Screenshot of All Test Cases Passes:
 
 [sreenshot-test-1](images/sreenshot-test-1.jpg)
 
-###Test Case Presentation (Program):
+### Test Case Presentation (Program):
 
 1. **testInsertCoin** is a JUnit test case for testing the insertCoin method of the
    GumballMachine class. The test case performs the following actions:
@@ -151,24 +151,24 @@ functionalities are tested in separate test cases.
 
 Vladislav Semenyutin (TEAM LEAD):
 
-● Program code
-● Test code
-● Test Cases Presentation Abstract and Program
-● Reasoning for Main test case in Program
+* Program code
+* Test code
+* Test Cases Presentation Abstract and Program
+* Reasoning for Main test case in Program
 
 Abdullah Waheed:
 
-● Problem statement
-● Reasons for test cases in Abstract
-● Reason for test case testDispenseGumball in Program
+* Problem statement
+* Reasons for test cases in Abstract
+* Reason for test case testDispenseGumball in Program
 
 Christian Hernandez:
 
-● Reasons for Test Case testInsertCoin in Program
-● Reasons for Test Case testDispenseGumball in Program
-● Reasons for Test Case testReturnCoins in Program
+* Reasons for Test Case testInsertCoin in Program
+* Reasons for Test Case testDispenseGumball in Program
+* Reasons for Test Case testReturnCoins in Program
 
 Lovepreet Uppal:
 
-● Reasons for Test Case returnCoins in Program
-● Document formatting
+* Reasons for Test Case returnCoins in Program
+* Document formatting
