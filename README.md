@@ -14,7 +14,7 @@
 
 ![screenshot-run-1](images/screenshot-run-1.jpg)
 
-![screenshot-run-2](images/screenshot-run-1.jpg)
+![screenshot-run-2](images/screenshot-run-2.jpg)
 
 # Test cases to cover all possible scenarios:
 
