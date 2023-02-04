@@ -1,8 +1,6 @@
 
 package org.example;
 
-import java.util.Scanner;
-
 /**
  * The `GumballMachine` class implements a simple gumball machine
  *      that dispenses red or yellow gumballs.
@@ -52,7 +50,7 @@ public class GumballMachine {
         } else if (input.equalsIgnoreCase("y")){
             if (balance >= yellowGumballPrice) {
                 balance -= yellowGumballPrice;
-                System.out.println("Dispensing Yellow gumball");
+                System.out.println("Dispensing Yellow gumball, remaining coins: " + balance);
             } else {
                 System.out.println("Not enough coins inserted. Please insert "
                         + (yellowGumballPrice - balance) + " cents more");
@@ -86,13 +84,18 @@ public class GumballMachine {
     /**
      * Displays the options available to the user on the gumball machine.
      */
-    public void showOptions(){
-        System.out.println("--- OPTIONS ---\n" +
-                "Insert 5, 10 or 25 cents (type: 5, 10 or 25)\n" +
-                "To dispense Red or Yellow gumball (type: R or r and Y or y accordingly)\n" +
-                "To Get remaining coins (type: G or g)\n" +
-                "To Quit (type: Q or q)\n" +
-                "Current balance is: " + balance + " cents");
+    public boolean showOptions(String input){
+        if(input.equalsIgnoreCase("o")){
+            System.out.println("--- OPTIONS ---\n" +
+                    "Insert 5, 10 or 25 cents, type: 5, 10 or 25\n" +
+                    "To dispense Red or Yellow gumball, type: R or r and Y or y accordingly\n" +
+                    "To Get remaining coins, type: G or g\n" +
+                    "To show the Options again, type O or o\n" +
+                    "To Quit the program, type: Q or q\n" +
+                    "Current balance is: " + balance + " cents");
+            return true;
+        }
+        return false;
     }
 
     // balance getters and setters are fore testing
