@@ -42,8 +42,12 @@ public class main {
                         // try to insert coin
                         try {
                             // transform input string to int and add coins to the machine's bank
-                            gumballMachine.insertCoin(Integer.parseInt(input));
-
+                            // and check if it is more or equal then 0
+                            if(Integer.parseInt(input) >= 0)
+                                gumballMachine.insertCoin(Integer.parseInt(input));
+                            else{
+                                System.out.println("Invalid input");
+                            }
                         } catch (NumberFormatException e) {
                             // If the input cannot be transformed to int, display an error message
                             // Also catches all invalid input that didn't pass other if statements

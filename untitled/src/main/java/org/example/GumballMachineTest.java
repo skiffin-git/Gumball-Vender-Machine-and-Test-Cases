@@ -4,7 +4,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -118,6 +120,50 @@ public class GumballMachineTest {
                 "To Quit the program, type: Q or q\n" +
                 "Current balance is: 0 cents\r\n", outContent.toString());
         outContent.reset();
+    }
+    /*
+     * Test case for main function of the gumball machine program
+     *
+     * The test case sets the input stream
+     * to simulate user incorrect inputs and
+     * sets the output stream to capture the program's output.
+     *
+     * The test inputs are:u,1000,-25,hello,q
+     * The expected output is:
+     * Invalid input
+     * Invalid input, returned 1000 on the push of the dispenses lever
+     * Invalid input
+     * Invalid input
+     * Invalid input
+     *
+     * The test case asserts that the output matches the expected output.
+     */
+    @Test
+    public void testMain() {
+        InputStream testInput = new ByteArrayInputStream("u\n1000\n-25\n \nhello\nq\n".getBytes());
+        System.setIn(testInput);
+        ByteArrayOutputStream testOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(testOutput));
+
+        main.main(null);
+
+        assertEquals("--- WELCOME TO GUMBALL MACHINE ---\r\n" +
+                "--- OPTIONS ---\n" +
+                "Insert 5, 10 or 25 cents, type: 5, 10 or 25\n" +
+                "To dispense Red or Yellow gumball, type: R or r and Y or y accordingly\n" +
+                "To Get remaining coins, type: G or g\n" +
+                "To show the Options again, type O or o\n" +
+                "To Quit the program, type: Q or q\n" +
+                "Current balance is: 0 cents\r\n" +
+                "Invalid input\r\n" +
+                "Invalid input, returned 1000 on the push of the dispenses lever\r\n" +
+                "Invalid input\r\n" +
+                "Invalid input\r\n" +
+                "Invalid input\r\n" +
+                "--- EXITING FROM GUMBALL MACHINE ---\r\n", testOutput.toString());
+
+        System.setIn(System.in);
+        System.setOut(System.out);
     }
 }
 
